@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export const Button = styled.button`
   label: Button;
@@ -8,16 +8,17 @@ export const Button = styled.button`
   border-radius: 4px;
   border: 1px solid black;
   color: black;
-  margin:0 9px;
+  margin: 0 9px;
+  cursor: pointer;
   &:hover {
     color: hotpink;
   }
-`
+`;
 
 export const ButtonContainer = styled.div`
-label: ButtonContainer;
-display: flex;
-justify-content:center;
-align-items: center;
-margin:25px;
-`
+  label: ButtonContainer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+`;
