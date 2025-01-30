@@ -1,13 +1,23 @@
 import styled from '@emotion/styled'
 
 export const Button = styled.button`
-  padding: 32px;
-  background-color: hotpink;
-  font-size: 24px;
+  label: Button;
+  padding: 6px 12px;
+  background-color: lightgreen;
+  font-size: 12px;
   border-radius: 4px;
+  border: 1px solid black;
   color: black;
-  font-weight: bold;
+  margin:0 9px;
   &:hover {
-    color: white;
+    color: hotpink;
   }
+`
+
+export const ButtonContainer = styled.div`
+label: ButtonContainer;
+display: flex;
+justify-content:center;
+align-items: center;
+margin:25px;
 `
