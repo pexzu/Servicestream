@@ -47,6 +47,17 @@ export const MovieTable = styled.table`
   }
 `;
 
+interface MovieTableRowProps {
+  Highlight: boolean;
+}
+
+export const MovieTableRow = styled.tr<MovieTableRowProps>`
+  label: MovieTableRow;
+  cursor: pointer;
+  background: ${(props: MovieTableRowProps) =>
+    props.Highlight && "pink"} !important;
+`;
+
 export const FilterBox = styled.input`
   label: FilterBox;
   padding: 6px 9px;
