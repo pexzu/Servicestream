@@ -47,14 +47,14 @@ export const MovieTable = styled.table`
   }
 `;
 
-interface MovieTableRowProps {
+interface IMovieTableRowProps {
   Highlight: boolean;
 }
 
-export const MovieTableRow = styled.tr<MovieTableRowProps>`
+export const MovieTableRow = styled.tr<IMovieTableRowProps>`
   label: MovieTableRow;
   cursor: pointer;
-  background: ${(props: MovieTableRowProps) =>
+  background: ${(props: IMovieTableRowProps) =>
     props.Highlight && "pink"} !important;
 `;
 

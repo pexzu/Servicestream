@@ -7,7 +7,7 @@ export const Table = () => {
   const [currentFilterText, setCurrentFilterText] = useState("");
   const [rowActive, setRowActive] = useState(-1);
 
-  let response: any = useMovieDetails(currentPage, currentFilterText);
+  let response = useMovieDetails(currentPage, currentFilterText);
   const totalPages = response.total_pages;
   let currentData = response.data;
   //Not using any thirdparty Table component for this coding task
@@ -24,7 +24,7 @@ export const Table = () => {
       setRowActive(-1);
     }
   };
-  const onChangeText = (event: any) => {
+  const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentFilterText(event.target.value);
     if (currentPage != 1) {
       setCurrentPage(1);
@@ -53,10 +53,11 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {currentData.map((item: any, index: number) => (
+          {currentData.map((item, index: number) => (
             <E.MovieTableRow
               onClick={() => onRowclick(index)}
               Highlight={index == rowActive}
+              key={index + item.Title}
             >
               <td>{(currentPage - 1) * 10 + (index + 1)}</td>
               <td>{item.Title}</td>
