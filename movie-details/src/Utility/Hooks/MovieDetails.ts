@@ -19,7 +19,7 @@ export const useMovieDetails = (pageNumber: number) => {
       }
     };
     movieDetails();
-  }, []);
+  }, [pageNumber]);
 
   return movieData;
 };

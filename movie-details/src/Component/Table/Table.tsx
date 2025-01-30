@@ -4,12 +4,23 @@ import { useMovieDetails } from "../../Utility/Hooks/MovieDetails";
 
 export const Table = () => {
   const [currentPage, setCurrentPage] = useState(1);
-
   let response: any = useMovieDetails(currentPage);
   const totalPages = response.total_pages;
   let currentData = response.data;
   console.log(response);
   //Not using any thirdparty Table component for this coding task
+
+  const onNextClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  const onPrevClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
     currentData && (
       <>
@@ -34,11 +45,13 @@ export const Table = () => {
           </tbody>
         </table>
         <E.ButtonContainer>
-          <E.Button> 1</E.Button>
-          <E.Button> Previous</E.Button>
+          <E.Button onClick={() => setCurrentPage(1)}> 1</E.Button>
+          <E.Button onClick={onPrevClick}> Previous</E.Button>
           <div>Current Page:{currentPage}</div>
-          <E.Button> Next</E.Button>
-          <E.Button> {totalPages}</E.Button>
+          <E.Button onClick={onNextClick}> Next</E.Button>
+          <E.Button onClick={() => setCurrentPage(totalPages)}>
+            {totalPages}
+          </E.Button>
         </E.ButtonContainer>
       </>
     )
