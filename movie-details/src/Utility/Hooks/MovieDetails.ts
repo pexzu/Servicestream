@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const useMovieDetails = (pageNumber: number) => {
+export const useMovieDetails = (
+  pageNumber: number,
+  currentFilterText: String
+) => {
   const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
@@ -9,7 +12,12 @@ export const useMovieDetails = (pageNumber: number) => {
       try {
         console.log("blash");
         let result = await axios(
-          `https://jsonmock.hackerrank.com/api/movies/search/?page=${pageNumber}`
+          `https://jsonmock.hackerrank.com/api/movies/search/?page=${pageNumber}`,
+          {
+            params: {
+              Title: currentFilterText,
+            },
+          }
         );
         setMovieData(result.data);
       } catch (err) {
@@ -19,7 +27,7 @@ export const useMovieDetails = (pageNumber: number) => {
       }
     };
     movieDetails();
-  }, [pageNumber]);
+  }, [pageNumber, currentFilterText]);
 
   return movieData;
 };
