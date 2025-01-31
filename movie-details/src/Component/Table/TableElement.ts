@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ReactComponent as UpArrow } from "./../../Icons/arrow_drop_up.svg";
 
 export const Button = styled.button`
   label: Button;
@@ -62,4 +63,14 @@ export const FilterBox = styled.input`
   label: FilterBox;
   padding: 6px 9px;
   margin: 15px 0;
+`;
+
+interface IUpArrowIconProps {
+  Asc: boolean;
+}
+export const UpArrowIcon = styled(UpArrow)<IUpArrowIconProps>`
+  label: UpArrowIcon;
+  vertical-align:middle;
+  transform: ${(props: IUpArrowIconProps) =>
+    props.Asc ? "rotate(180deg)" : "rotate(0)"}}
 `;
