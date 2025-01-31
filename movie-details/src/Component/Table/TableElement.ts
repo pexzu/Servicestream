@@ -44,6 +44,9 @@ export const MovieTable = styled.table`
         padding: 6px;
         min-width: 10%;
       }
+      td:nth-child(2) {
+        width: 70%;
+      }
     }
   }
 `;
@@ -62,15 +65,15 @@ export const MovieTableRow = styled.tr<IMovieTableRowProps>`
 export const FilterBox = styled.input`
   label: FilterBox;
   padding: 6px 9px;
-  margin: 15px 0;
+  margin: 0 0 15px;
 `;
 
 interface IUpArrowIconProps {
-  Asc: boolean;
+  SortAsc: boolean;
 }
 export const UpArrowIcon = styled(UpArrow)<IUpArrowIconProps>`
   label: UpArrowIcon;
   vertical-align:middle;
   transform: ${(props: IUpArrowIconProps) =>
-    props.Asc ? "rotate(180deg)" : "rotate(0)"}}
+    props.SortAsc ? "rotate(180deg)" : "rotate(0)"}}
 `;

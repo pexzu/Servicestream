@@ -25,5 +25,5 @@
     "jest",
     "src/setupTests.ts"
   ],
-  "types": ["typePatches"]
+  "types": ["typePatches", "@testing-library/jest-dom"]
 }
